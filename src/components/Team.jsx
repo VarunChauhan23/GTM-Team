@@ -2,60 +2,104 @@ import { faFacebook, faInstagram, faLinkedin } from '@fortawesome/free-brands-sv
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import React, { useEffect, useState } from 'react';
+import Cardimg from '../assets/cardimg.jpg';
+import Cardimg2 from '../assets/cardimg2.jpg';
+import Cardimg3 from '../assets/cardimg3.jpg';
 import './Team.css';
 
 const Team = () => {
   const [cardData, setCardData] = useState();
+  const [startIndex, setStartIndex] = useState(0);
+
   useEffect(() => {
     const data = [
       {
-        usrImg: 'lasdfjk',
+        usrImg: Cardimg,
         usrName: 'Bhagwat Mohite',
+        usrDes: 'Director',
+      },
+      {
+        usrImg: Cardimg3,
+        usrName: 'Ashish Gaikwad',
         usrDes: 'Manager',
       },
       {
-        usrImg: 'lasdfjk',
-        usrName: 'Bhagwat Mohite',
-        usrDes: 'Manager',
+        usrImg: Cardimg3,
+        usrName: 'Shubham Mise',
+        usrDes: 'CTO',
       },
       {
-        usrImg: 'lasdfjk',
-        usrName: 'Bhagwat Mohite',
-        usrDes: 'Manager',
+        usrImg: Cardimg3,
+        usrName: 'Sai Mise',
+        usrDes: 'Web Designer',
       },
       {
-        usrImg: 'lasdfjk',
-        usrName: 'Bhagwat Mohite',
+        usrImg: Cardimg3,
+        usrName: 'Raju Mohite',
+        usrDes: 'Cashier',
+      },
+      {
+        usrImg: Cardimg3,
+        usrName: 'vishnu Mohite',
+        usrDes: 'Director',
+      },
+      {
+        usrImg: Cardimg3,
+        usrName: 'Siddesh Mohite',
+        usrDes: 'Employee',
+      },
+      {
+        usrImg: Cardimg2,
+        usrName: 'Ram Mohite ',
         usrDes: 'Manager',
-      }
-    ]
+      },
+
+    ];
 
     setCardData(data);
+  }, []);
 
-  }, [])
+  const handleNextClick = () => {
+    const nextIndex = startIndex + 4;
+    if (nextIndex < cardData.length) {
+      setStartIndex(nextIndex);
+    }
+  };
+
+  const handlePrevClick = () => {
+    const prevIndex = startIndex - 4;
+    if (prevIndex >= 0) {
+      setStartIndex(prevIndex);
+    }
+  };
+
   return (
     <>
-      {/* <div className='main-div'>
-        <h1 className='header'><span style={{ color: 'yellow' }}>Leadership</span> in your experts Hands!</h1>
-        <div className='main-div1'>sdkjnskjf
-
-        </div>
-      </div> */}
       <div className='header-container'>
         <div className='custom-shape' />
-        <div style={{ textAlign: 'center' }}><span style={{ color: '#FFBE3D', fontSize: 48.85, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word' }}>Meet </span><span style={{ color: 'white', fontSize: 48.85, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word' }}>Our Team</span></div>
+        <div style={{ textAlign: 'center' }}>
+          <span className="custom-text">Meet </span>
+          <span className="custom-text1">Our Team</span>
+        </div>
       </div>
-      <div style={{ position: 'relative', width: '100%', height: '474px', background: '#181818', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-        <div style={{ width: '50%', height: '50%', background: 'rgba(241, 62, 30, 0.46)', boxShadow: '184px 184px 184px ', borderRadius: 40, border: '1px black solid', filter: 'blur(184px)' }} />
+      <div className="custom-container">
+        <div className="custom-box" />
 
-        <div style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', }}>
-          <div style={{ textAlign: 'center', marginBottom: '70px', marginTop: '10px' }}><span style={{ color: '#FFBE3D', fontSize: 50.80, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word' }}>Leadership</span><span style={{ color: '#F6F6F6', fontSize: 50.80, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word' }}> In our Expert’s Hands!</span></div>
+        <div style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '700px' }}>
 
-          <div style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-around', overflow: 'hidden', gap: '5px', padding: '5px' }}>
-            {cardData && cardData.map((item, index) => {
-              return <div className="profile-card" key={index}>
+          <div className="custom-text2" >
+            <span className="custom-text3">Leadership</span>
+            <span className="custom-text4"> In our Expert’s Hands!</span>
+          </div>
+
+          <div className="custom-container11">
+            <div className="arrow left-arrow" onClick={handlePrevClick}>&lt;</div>
+
+            {cardData && cardData.slice(startIndex, startIndex + 4).map((item, index) => (
+              <div className="profile-card" key={index}>
                 <div className="profile-info">
-                  <img className="profile-pic" src="https://via.placeholder.com/119x119" />
+                  {/* <img className="profile-pic" src="https://via.placeholder.com/119x119" alt="Profile" /> */}
+                  <img className="profile-pic" src={item.usrImg} alt="Profile" />
                   <div className="user-name">{item.usrName}</div>
                   <div className="user-description">{item.usrDes}</div>
                 </div>
@@ -65,14 +109,16 @@ const Team = () => {
                   <a href="#" className="facebook-icon"><FontAwesomeIcon className='icon' icon={faFacebook} color="#3b5998" /></a>
                 </div>
               </div>
+            ))}
 
-            })}
+            <div className="arrow right-arrow" onClick={handleNextClick}>&gt;</div>
           </div>
 
         </div>
       </div>
+
     </>
-  )
-}
+  );
+};
 
 export default Team;
