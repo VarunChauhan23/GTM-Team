@@ -38,7 +38,6 @@
 .custom-text {
   color: #FFBE3D;
   font-size: clamp(1.05rem, 4vw, 3.05rem);
-  /* font-size: 48.85px; */
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   word-wrap: break-word;
@@ -46,7 +45,6 @@
 
 .custom-text1 {
   color: white;
-  /* font-size: 48.85px; */
   font-size: clamp(1.05rem, 4vw, 3.05rem);
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -83,7 +81,6 @@
 
 .custom-text3 {
   color: #FFBE3D;
-  /* font-size: 50.80px; */
   font-size: clamp(1.5rem, 4vw, 3.12rem);
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
@@ -92,7 +89,6 @@
 
 .custom-text4 {
   color: #F6F6F6;
-  /* font-size: 50.80px; */
   font-size: clamp(1.5rem, 4vw, 3.12rem);
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
@@ -206,6 +202,7 @@
   height: 119.19px;
   background: linear-gradient(0deg, #0B0B0B 0%, #0B0B0B 100%);
   border-radius: 277.01px;
+  object-fit: cover
 }
 
 .profile-info {
@@ -297,16 +294,13 @@
 
 
 .arrow {
-  /* width: 4rem; */
   width: clamp(40px, 5vw, 65px);
-  /* height: 4rem; */
   height: clamp(40px, 5vw, 65px);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 24px;
   background-color: transparent;
-
   border-radius: 50%;
   cursor: pointer;
   margin: 0 10px;

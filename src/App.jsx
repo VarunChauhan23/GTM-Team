@@ -1,5 +1,3 @@
-
-import './App.css'
 import Team from './components/Team'
 
 function App() {
